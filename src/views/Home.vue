@@ -8,7 +8,17 @@
 
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
-              <img src="@/assets/imgs/pokemons/001.png" v-if="exibir" />
+              <transition>
+                <img src="@/assets/imgs/pokemons/001.png" v-if="exibir" />
+              </transition>
+              <div class="evolucoes">
+                <transition>
+                  <img src="@/assets/imgs/pokemons/002.png" v-if="exibir" />
+                </transition>
+                <transition>
+                  <img src="@/assets/imgs/pokemons/003.png" v-if="exibir" />
+                </transition>
+              </div>
             </div>
           </div>
 
@@ -182,5 +192,47 @@ body {
 
 .detalhes {
   margin: 20px 30px 20px 30px;
+}
+
+.v-enter-from {
+  transform: translateX(-200px);
+  opacity: 0;
+}
+
+.v-enter-active {
+  transition: 2s;
+}
+
+.v-enter-to {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.v-leave-from {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.v-leave-active {
+  transition: 2s;
+}
+
+.v-leave-to {
+  transform: translateX(200px);
+  opacity: 0;
+}
+
+.evolucoes {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 70px;
+}
+
+.evolucoes img {
+  cursor: pointer;
+  max-width: 100%;
+  max-height: 100%;
+  float: right;
 }
 </style>
